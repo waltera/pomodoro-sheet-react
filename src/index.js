@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from './app/App';
 
-import $ from 'jquery'
+import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app/styles.css';
 
