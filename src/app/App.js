@@ -1,17 +1,13 @@
 import React from 'react';
 import Head from './Head';
-import Timer from './Timer';
-import TodoToday from './TodoToday';
-import DoneYesterday from './DoneYesterday';
+import Errors from './Errors';
+import Home from '../home/Home';
 
 const App = () => (
   <div>
     <Head />
-    <Timer />
-    <div className="container">
-      <TodoToday />
-      <DoneYesterday />
-    </div>
+    <Errors />
+    <Home />
   </div>
 );
 
