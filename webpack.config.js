@@ -13,7 +13,7 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
+        loader: 'eslint-loader'
       },
       {
         test: /\.js$/,
@@ -34,7 +34,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      historyApiFallback: true
     })
   ]
 };
