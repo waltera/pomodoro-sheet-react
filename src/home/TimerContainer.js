@@ -1,5 +1,6 @@
 import React from 'react';
-import {connect, bindActionCreators} from 'react-redux';
+import { bindActionCreators } from 'react';
+import { connect } from 'react-redux';
 import actions from './HomeActions';
 import Timer from './Timer';
 
