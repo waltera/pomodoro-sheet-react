@@ -1,5 +1,5 @@
-export const ADD_TASK = 'ADD_TASK';
+import * as types from './taskTypes'
 
 export function addTask(description) {
-  return { type: ADD_TASK, description }
+  return { type: types.ADD_TASK, description }
 }
