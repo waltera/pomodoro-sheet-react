@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  web:
+    build: .
+    command: yarn start
+    volumes:
+      - yarn_cache:/yarn_cache
+    ports:
+      - "8080:8080"
+volumes:
+  yarn_cache: {}
