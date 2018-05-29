@@ -1,19 +1,25 @@
 import React from 'react'
-import { createStore } from 'redux'
-import { render } from 'react-dom';
-import reducers from './app/reducers';
-import App from './app/App';
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import { render } from 'react-dom'
+import reducers from './app/reducers'
+import { helloSaga } from './app/sagas'
+import App from './app/App'
 
-import boostrap from 'bootstrap';
-import $ from 'jquery';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './app/styles.css';
+import boostrap from 'bootstrap'
+import $ from 'jquery'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './app/styles.css'
 
-const store = createStore(reducers);
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(
+  reducers,
+  applyMiddleware(sagaMiddleware)
+)
 
-console.log(store);
+sagaMiddleware.run(helloSaga)
 
 render(
   <App store={store} />,
   document.getElementById('root')
-);
+)

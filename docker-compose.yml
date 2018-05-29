@@ -2,9 +2,12 @@ version: '3.1'
 services:
   web:
     build: .
+    stdin_open: true
+    tty: true
     command: yarn start
     volumes:
       - yarn_cache:/yarn_cache
+      - .:/app
     ports:
       - "8080:8080"
 volumes:
