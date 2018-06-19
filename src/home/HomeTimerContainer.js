@@ -1,15 +1,15 @@
 import React from 'react';
-import { bindActionCreators } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import actions from './HomeActions';
-import Timer from './Timer';
+import * as actions from './homeActions';
+import HomeTimer from './HomeTimer';
 
 const mapStateToProps = (state, ownProps) => ({
-  tasks: state.tasks
+  timer: state.home.timer
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   actions: bindActionCreators(actions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Timer)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeTimer)

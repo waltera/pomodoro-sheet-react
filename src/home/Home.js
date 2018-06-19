@@ -1,11 +1,11 @@
 import React from 'react'
-import Timer from './Timer'
-import TodoToday from './TodoToday'
-import WorkLog from './WorkLog'
+import TimerContainer from './HomeTimerContainer'
+import TodoToday from './HomeTodoToday'
+import WorkLog from './HomeWorkLog'
 
 const Home = () => (
   <div>
-    <Timer />
+    <TimerContainer />
     <div className="row">
       <div className="col-sm-9">
         <TodoToday />

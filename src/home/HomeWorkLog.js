@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WorkLog = () => (
+const HomeWorkLog = () => (
   <ul className="list-group">
     <li className="list-group-item d-flex justify-content-between align-items-center">
       Planejado
@@ -17,4 +17,4 @@ const WorkLog = () => (
   </ul>
 );
 
-export default WorkLog;
+export default HomeWorkLog;

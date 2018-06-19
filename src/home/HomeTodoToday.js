@@ -6,7 +6,7 @@ import imgDone2 from '../img/si-glyph-circle.svg'
 import imgPlanned2 from '../img/si-glyph-circle-drashed.svg'
 import imgCanceled from '../img/si-glyph-delete.svg'
 
-const TodoToday = () => (
+const HomeTodoToday = () => (
   <div className="card">
     <ul className="list-group list-group-flush">
       <div className="card-header d-flex justify-content-between align-items-center">
@@ -38,4 +38,4 @@ const TodoToday = () => (
   </div>
 )
 
-export default TodoToday
+export default HomeTodoToday
