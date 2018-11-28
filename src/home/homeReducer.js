@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { createReducer } from '../app/utils'
-import * as types from './homeTypes';
+import { timerActions, timerStates } from './homeTypes';
 
 // seconds
 const pomodoroSize = 1500*1000
@@ -49,7 +49,7 @@ const incrementTimer = (state) => {
 
 const startPomodoro = (state) => {
   const newTimer = {
-    action: types.TimerActions.POMODORO,
+    action: timerStates.POMODORO,
     minutes: formatTime(25),
     seconds: formatTime(0)
   }
@@ -58,6 +58,7 @@ const startPomodoro = (state) => {
 }
 
 const stopTimer = (state) => {
+  console.log('stop pomodoro reducer')
   const newTimer = {
     action: undefined,
     minutes: formatTime(0),
@@ -68,7 +69,7 @@ const stopTimer = (state) => {
 }
 
 export default createReducer(initialState, {
-  [types.TimerActions.START_POMODORO]: startPomodoro,
-  [types.TimerActions.STOP_TIMER]: stopTimer,
-  [types.TimerActions.INCREMENT_TIMER]: incrementTimer
+  [timerActions.START_POMODORO]: startPomodoro,
+  [timerActions.STOP_TIMER]: stopTimer,
+  [timerActions.INCREMENT_TIMER]: incrementTimer
 })

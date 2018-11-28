@@ -1,10 +1,10 @@
 import * as actions from './homeActions'
-import * as types from './homeTypes'
+import {timerActions} from './homeTypes'
 
 describe('home actions', () => {
   it('should create startPomodoro action', () => {
     const expectedAction = {
-      type: types.TimerActions.START_POMODORO
+      type: timerActions.START_POMODORO
     }
 
     expect(actions.startPomodoro()).toEqual(expectedAction)
@@ -12,7 +12,7 @@ describe('home actions', () => {
 
   it('should create startShortBreack action', () => {
     const expectedAction = {
-      type: types.TimerActions.START_SHORT_BREACK
+      type: timerActions.START_SHORT_BREACK
     }
 
     expect(actions.startShortBreack()).toEqual(expectedAction)
@@ -20,7 +20,7 @@ describe('home actions', () => {
 
   it('should create startLongBreack action', () => {
     const expectedAction = {
-      type: types.TimerActions.START_LONG_BREACK
+      type: timerActions.START_LONG_BREACK
     }
 
     expect(actions.startLongBreack()).toEqual(expectedAction)
@@ -28,7 +28,7 @@ describe('home actions', () => {
 
   it('sould create stopTimer action', () => {
     const expectedAction = {
-      type: types.TimerActions.STOP_TIMER
+      type: timerActions.STOP_TIMER
     }
 
     expect(actions.stopTimer()).toEqual(expectedAction)
@@ -36,7 +36,7 @@ describe('home actions', () => {
 
   it('sould create finishTimer action', () => {
     const expectedAction = {
-      type: types.TimerActions.FINISH_TIMER
+      type: timerActions.FINISH_TIMER
     }
 
     expect(actions.finishTimer()).toEqual(expectedAction)
@@ -44,7 +44,7 @@ describe('home actions', () => {
 
   it('sould create incrementTimer action', () => {
     const expectedAction = {
-      type: types.TimerActions.INCREMENT_TIMER
+      type: timerActions.INCREMENT_TIMER
     }
 
     expect(actions.incrementTimer()).toEqual(expectedAction)

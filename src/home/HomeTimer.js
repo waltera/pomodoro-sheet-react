@@ -1,21 +1,23 @@
 import React from 'react';
+import HomeTimerButton from './HomeTimerButton'
+import { timerStates } from './homeTypes'
 
-const HomeTimer = ({ timer, actions }) => {
-  console.log(timer)
-  const minutes = Math.floor((timer % (1000 * 60 * 60)) / (1000 * 60))
-  const seconds = Math.floor((timer % (1000 * 60)) / 1000)
-
-  console.log(minutes)
-  console.log(seconds)
-
+const HomeTimer = ({ timer, startPomodoro, stopTimer }) => {
   return(
     <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 className="display-1">
-          {minutes}:{seconds}
+          {timer.minutes}:{timer.seconds}
       </h1>
       <p className="lead">
-        <button type="button" className="btn btn-success mr-1" onClick={() => actions.startPomodoro()}>Pomodoro</button>
-        <button type="button" className="btn btn-info mr-1">Short Break</button>
+        <HomeTimerButton
+          timer={timer}
+          action={startPomodoro}
+          state={timerStates.POMODORO}
+          style="btn btn-success mr-1"
+          text='Pomodoro'
+        />
+
+        <button type="button" className="btn btn-info mr-1" onClick={stopTimer}>Short Break</button>
         <button type="button" className="btn btn-warning">Long Break</button>
       </p>
     </div>

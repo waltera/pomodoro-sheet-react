@@ -1,20 +1,33 @@
 import { delay } from 'redux-saga'
-import { all, put, takeEvery } from 'redux-saga/effects'
-import * as types from './homeTypes'
+import { all, put, take, fork, cancel, cancelled, takeEvery, select } from 'redux-saga/effects'
+import {timerActions} from './homeTypes'
 
 export function* incrementAsync() {
   while (true) {
-    const data = yield put({ type: types.TimerActions.INCREMENT_TIMER })
+    yield put({type: timerActions.INCREMENT_TIMER})
     yield delay(1000)
   }
 }
 
-export function* watchStartPomodoro() {
-  yield takeEvery(types.TimerActions.START_POMODORO, incrementAsync)
+export function* watchPomodoro() {
+  while ( yield take(timerActions.START_POMODORO) ) {
+    const timer = yield fork(incrementAsync)
+    yield take(timerActions.STOP_TIMER)
+    yield cancel(timer)
+  }
+}
+
+export function* watchShortBreak() {
+  while ( yield take(timerActions.START_SHORT_BREAK) ) {
+    const timer = yield fork(incrementAsync)
+    yield take(timerActions.STOP_TIMER)
+    yield cancel(timer)
+  }
 }
 
 export default function* homeSaga() {
   yield all([
-    watchIncrementAsync()
+    watchPomodoro(),
+    watchShortBreak()
   ])
 }
