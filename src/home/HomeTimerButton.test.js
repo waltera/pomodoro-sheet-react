@@ -18,7 +18,7 @@ describe('HomeTimerButton', () => {
     const button = wrapper.find('button')
 
     expect(button.text()).toBe('Text')
-    expect(button.prop('class')).toBe('btn btn-success mr-1')
+    expect(button.prop('className')).toBe('btn btn-success mr-1')
     expect(button.prop('disabled')).toBe(false)
   })
 

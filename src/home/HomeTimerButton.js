@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const HomeTimerButton = ({timer, action, text, style, state}) => {
   const buttonText = () => {
@@ -12,9 +13,17 @@ const HomeTimerButton = ({timer, action, text, style, state}) => {
   return (
     <button
       onClick={action}
-      class={'btn ' + style}
+      className={'btn ' + style}
       disabled={disabled()}>{buttonText()}</button>
   )
+}
+
+HomeTimerButton.propTypes = {
+  timer: PropTypes.object,
+  action: PropTypes.func,
+  text: PropTypes.string,
+  style: PropTypes.string,
+  state: PropTypes.string
 }
 
 export default HomeTimerButton
