@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import {POMODORO} from './timerStates'
 import Button from './Button'
 
-const ButtonPomodoro = ({ timer, startPomodoro }) => {
+const ButtonPomodoro = ({timer, startPomodoro}) => {
   return <Button
     timerAction={timer.action}
     handleClick={startPomodoro}
-    state={POMODORO}
+    stateAction={POMODORO}
     style="btn btn-success mr-1"
     text='Pomodoro'
   />

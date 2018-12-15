@@ -1,13 +1,13 @@
 import React from 'react'
 import Enzyme, {render} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import ButtonPomodoro from './ButtonPomodoro'
-import {POMODORO} from './timerStates'
+import {SHORT_BREAK} from './timerStates'
+import ButtonShortBreak from './ButtonShortBreak'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 const setup = (action) => {
-  const startPomodoro = jest.fn()
+  const startShortBreak = jest.fn()
   const timer = {
     action: action,
     minutes: '00',
@@ -15,26 +15,26 @@ const setup = (action) => {
   }
   const initialState = {
     timer,
-    startPomodoro
+    startShortBreak
   }
 
-  return render(<ButtonPomodoro {...initialState} />)
+  return render(<ButtonShortBreak {...initialState} />)
 }
 
-describe('ButtonPomodoro', () => {
+describe('ButtonShortBreak', () => {
   it('render initial state', () => {
     const wrapper = setup()
 
-    expect(wrapper.text()).toBe('Pomodoro')
-    expect(wrapper.prop('class')).toBe('btn btn btn-success mr-1')
+    expect(wrapper.text()).toBe('Short Break')
+    expect(wrapper.prop('class')).toBe('btn btn-info mr-1')
     expect(wrapper.prop('disabled')).toBe(false)
   })
 
   it('render action state', () => {
-    const wrapper = setup(POMODORO)
+    const wrapper = setup(SHORT_BREAK)
 
-    expect(wrapper.text()).toBe('Pomodoro...')
-    expect(wrapper.prop('class')).toBe('btn btn btn-success mr-1')
+    expect(wrapper.text()).toBe('Short Break...')
+    expect(wrapper.prop('class')).toBe('btn btn-info mr-1')
     expect(wrapper.prop('disabled')).toBe(true)
   })
 })

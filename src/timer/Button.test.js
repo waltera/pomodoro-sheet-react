@@ -1,6 +1,6 @@
 import React from 'react'
 import Enzyme, {shallow} from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16.2'
+import Adapter from 'enzyme-adapter-react-16'
 import Button from './Button'
 import * as timerStates from './timerStates'
 
@@ -33,8 +33,8 @@ describe('Button', () => {
   it('handle action state', () => {
     const text = 'Text'
     const timerAction = timerStates.POMODORO
-    const state = timerStates.POMODORO
-    const wrapper = setup({text, timerAction, state})
+    const stateAction = timerStates.POMODORO
+    const wrapper = setup({text, timerAction, stateAction})
     const button = wrapper.find('button')
 
     expect(button.text()).toBe('Text...')
@@ -44,8 +44,8 @@ describe('Button', () => {
   it('handle other action', () => {
     const text = 'Text'
     const timerAction = timerStates.POMODORO
-    const state = timerStates.LONG_BREAK
-    const wrapper = setup({text, timerAction, state})
+    const stateAction = timerStates.LONG_BREAK
+    const wrapper = setup({text, timerAction, stateAction})
     const button = wrapper.find('button')
 
     expect(button.text()).toBe('Text')
