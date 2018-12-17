@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux'
 import { createReducer } from '../app/utils'
 import * as types from './taskTypes'
 

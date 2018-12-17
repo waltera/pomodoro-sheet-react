@@ -26,20 +26,13 @@ const setup = (action) => {
     timer,
     actions
   }
-  const wrapper = mount(<Timer {...initialState} />)
 
-  return {
-    startPomodoro,
-    startShortBreak,
-    startLongBreak,
-    cancelTimer,
-    wrapper
-  }
+  return mount(<Timer {...initialState} />)
 }
 
 describe('Timer', () => {
   it('render initial state', () => {
-    const {wrapper} = setup()
+    const wrapper = setup()
     const divContainer = wrapper.find('.pricing-header')
     const expectedContainerClass = 'pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'
     const buttons = divContainer.find('.lead').find('button')
@@ -52,7 +45,7 @@ describe('Timer', () => {
   })
 
   it('render pomodoro state', () => {
-    const {wrapper} = setup(POMODORO)
+    const wrapper = setup(POMODORO)
     const buttons = wrapper.find('.pricing-header').find('.lead').find('button')
 
     expect(buttons.length).toBe(2)
@@ -61,7 +54,7 @@ describe('Timer', () => {
   })
 
   it('render short break', () => {
-    const {wrapper} = setup(SHORT_BREAK)
+    const wrapper = setup(SHORT_BREAK)
     const buttons = wrapper.find('.pricing-header').find('.lead').find('button')
 
     expect(buttons.length).toBe(2)
@@ -70,7 +63,7 @@ describe('Timer', () => {
   })
 
   it('render long brak', () => {
-    const {wrapper} = setup(LONG_BREAK)
+    const wrapper = setup(LONG_BREAK)
     const buttons = wrapper.find('.pricing-header').find('.lead').find('button')
 
     expect(buttons.length).toBe(2)

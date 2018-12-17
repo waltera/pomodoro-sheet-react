@@ -32,7 +32,7 @@ const Timer = ({ timer, actions}) => {
   }
   const buttonCancel = () => {
     if (timer.action && timer.action.trim() != '') {
-      return <ButtonCancel cancelTimer={actions.cancelTimer} />
+      return <ButtonCancel cancelTimer={actions.stopTimer} />
     }
   }
   return(
