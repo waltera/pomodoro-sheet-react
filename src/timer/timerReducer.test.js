@@ -1,6 +1,6 @@
 import reducer from './timerReducer'
-import * as timerActions from './timerActions'
-import * as timerStates from './timerStates'
+import {START_POMODORO, STOP_TIMER, INCREMENT_TIMER} from './timerTypes'
+import {POMODORO} from './timerStates'
 
 describe('timer reducer', () => {
   it('should return initialState', () => {
@@ -17,20 +17,20 @@ describe('timer reducer', () => {
   it('should handle INCREMENT_TIMER without end', () => {
     const initialState = {
       timer: {
-        action: timerStates.POMODORO,
+        action: POMODORO,
         minutes: '25',
         seconds: '00'
       }
     }
     const expectedState = {
       timer: {
-        action: timerStates.POMODORO,
+        action: POMODORO,
         minutes: '24',
         seconds: '59'
       }
     }
     const actions = {
-      type: timerActions.INCREMENT_TIMER
+      type: INCREMENT_TIMER
     }
     expect(reducer(initialState, actions)).toEqual(expectedState)
   })
@@ -38,13 +38,13 @@ describe('timer reducer', () => {
   it('should handle INCREMENT_TIMER with end', () => {
     const initialState = {
       timer: {
-        action: timerStates.POMODORO,
+        action: POMODORO,
         minutes: '00',
         seconds: '00'
       }
     }
     const actions = {
-      type: timerActions.INCREMENT_TIMER
+      type: INCREMENT_TIMER
     }
     expect(reducer(initialState, actions)).toEqual(initialState)
   })
@@ -52,13 +52,13 @@ describe('timer reducer', () => {
   it('should handle START_POMODORO', () => {
     const expectedState = {
       timer: {
-        action: timerStates.POMODORO,
+        action: POMODORO,
         minutes: '25',
         seconds: '00'
       }
     }
     const actions = {
-      type: timerActions.START_POMODORO
+      type: START_POMODORO
     }
     expect(reducer(undefined, actions)).toEqual(expectedState)
   })
@@ -72,7 +72,7 @@ describe('timer reducer', () => {
       }
     }
     const actions = {
-      type: timerActions.STOP_TIMER
+      type: STOP_TIMER
     }
     expect(reducer(undefined, actions)).toEqual(expectedState)
   })
