@@ -16,8 +16,7 @@ const formatTime = (value) => (
 
 const nextMinute = ({ minutes, seconds }) => {
   if(minutes != '00' && seconds == '00') {
-    let prev = parseInt(minutes) - 1
-    return formatTime(prev)
+    return formatTime(parseInt(minutes) - 1)
   } else {
     return formatTime(minutes)
   }
@@ -26,9 +25,8 @@ const nextMinute = ({ minutes, seconds }) => {
 const nextSecond = ({ minutes, seconds }) => {
   if(minutes == '00' && seconds == '00') return '00'
 
-  if(minutes != '00' && seconds != '00') {
-    let prev = parseInt(seconds) - 1
-    return formatTime(prev)
+  if(seconds != '00') {
+    return formatTime(parseInt(seconds) - 1)
   } else {
     return formatTime(59)
   }

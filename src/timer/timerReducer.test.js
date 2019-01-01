@@ -40,13 +40,20 @@ describe('timer reducer', () => {
       timer: {
         action: POMODORO,
         minutes: '00',
+        seconds: '01'
+      }
+    }
+    const expectedState = {
+      timer: {
+        action: POMODORO,
+        minutes: '00',
         seconds: '00'
       }
     }
     const actions = {
       type: INCREMENT_TIMER
     }
-    expect(reducer(initialState, actions)).toEqual(initialState)
+    expect(reducer(initialState, actions)).toEqual(expectedState)
   })
 
   it('should handle START_POMODORO', () => {
