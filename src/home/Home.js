@@ -1,5 +1,5 @@
 import React from 'react'
-import TimerContainer from './HomeTimerContainer'
+import TimerContainer from '../timer/TimerContainer'
 import TodoToday from './HomeTodoToday'
 import WorkLog from './HomeWorkLog'
 
