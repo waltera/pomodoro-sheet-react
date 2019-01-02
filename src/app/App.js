@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Head from './Head';
 import Errors from './Errors';
 import Home from '../home/Home';
@@ -9,7 +9,7 @@ import TaskContainer from '../task/TaskContainer';
 
 const App = ({ store }) => (
   <Provider store={store}>
-    <BrowserRouter>
+    <Router>
       <div>
         <Head />
         <div className="container">
@@ -20,7 +20,7 @@ const App = ({ store }) => (
           </Switch>
         </div>
       </div>
-    </BrowserRouter>
+    </Router>
   </Provider>
 );
 
