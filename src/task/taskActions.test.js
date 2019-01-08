@@ -1,13 +1,13 @@
-import * as actions from './taskActions'
-import * as types from './taskTypes'
+import {getAll} from './taskActions'
+import {GET_ALL} from './taskTypes'
 
 describe('task actions', () => {
-  it('should create addTask action', () => {
-    const description = 'Card 1'
+  it('should create getAll action', () => {
+    const taskList = []
     const expectedAction = {
-      type: types.ADD_TASK,
-      description
+      type: GET_ALL,
+      taskList
     }
-    expect(actions.addTask(description)).toEqual(expectedAction)
+    expect(getAll(taskList)).toEqual(expectedAction)
   })
 })

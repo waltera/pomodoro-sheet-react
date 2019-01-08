@@ -1,1 +1,1 @@
-export const ADD_TASK = 'ADD_TASK'
+export const GET_ALL = 'TASK_GET_ALL'

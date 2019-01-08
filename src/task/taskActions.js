@@ -1,5 +1,5 @@
-import * as types from './taskTypes'
+import {GET_ALL} from './taskTypes'
 
-export function addTask(description) {
-  return { type: types.ADD_TASK, description }
+export function getAll(taskList) {
+  return { type: GET_ALL, taskList }
 }
