@@ -1,5 +1,5 @@
 import {createReducer} from '../app/utils'
-import {GET_ALL} from './taskTypes'
+import {GET_ALL, SHOW} from './taskTypes'
 
 export const initialState = {
   showModal: false,
@@ -30,6 +30,18 @@ const getAll = (state, {taskList}) => {
   return Object.assign({}, {...state}, {list: newList})
 }
 
+const show = (state, {id}) => {
+  const task = state.list.find(task => task.id == id)
+  const form = {
+    id: task.id,
+    description: task.description,
+    pomodoros: task.pomodoros.length
+  }
+
+  return Object.assign({}, {...state}, {form})
+}
+
 export default createReducer(initialState, {
-  [GET_ALL]: getAll
+  [GET_ALL]: getAll,
+  [SHOW]: show
 })
