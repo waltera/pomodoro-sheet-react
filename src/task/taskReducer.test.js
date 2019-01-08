@@ -1,5 +1,5 @@
 import reducer, {initialState} from './taskReducer'
-import {GET_ALL, SHOW} from './taskTypes'
+import {GET_ALL, EDIT} from './taskTypes'
 
 const taskList = {
   "data": [
@@ -62,7 +62,7 @@ describe('task reducer', () => {
     expect(reducer(undefined, {type: GET_ALL, taskList})).toEqual(expectedState)
   })
 
-  it('should handle TASK_SHOW', () => {
+  it('should handle TASK_EDIT', () => {
     const list = [
       {
         id: 12,
@@ -79,14 +79,14 @@ describe('task reducer', () => {
         ]
       }
     ]
-    const showState = Object.assign({}, {...initialState}, {list})
+    const editState = Object.assign({}, {...initialState}, {list})
     const form = {
       id: 12,
       description: 'Task 1',
       pomodoros: 1
     }
-    const expectedState = Object.assign({}, {...showState}, {form})
+    const expectedState = Object.assign({}, {...editState}, {form})
 
-    expect(reducer(showState, {type: SHOW, id: 12})).toEqual(expectedState)
+    expect(reducer(editState, {type: EDIT, id: 12})).toEqual(expectedState)
   })
 })

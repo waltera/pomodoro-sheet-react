@@ -1,5 +1,5 @@
-import {getAll, show} from './taskActions'
-import {GET_ALL, SHOW} from './taskTypes'
+import {getAll, edit} from './taskActions'
+import {GET_ALL, EDIT} from './taskTypes'
 
 describe('task actions', () => {
   it('getAll action', () => {
@@ -11,12 +11,12 @@ describe('task actions', () => {
     expect(getAll(taskList)).toEqual(expectedAction)
   })
 
-  it('show action', () => {
+  it('edit action', () => {
     const id = 1
     const expectedAction = {
-      type: SHOW,
+      type: EDIT,
       id
     }
-    expect(show(id)).toEqual(expectedAction)
+    expect(edit(id)).toEqual(expectedAction)
   })
 })

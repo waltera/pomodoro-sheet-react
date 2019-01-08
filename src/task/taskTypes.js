@@ -1,2 +1,2 @@
 export const GET_ALL = 'TASK_GET_ALL'
-export const SHOW = 'TASK_SHOW'
+export const EDIT = 'TASK_EDIT'

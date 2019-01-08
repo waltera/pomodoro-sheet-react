@@ -1,4 +1,4 @@
-import {GET_ALL, SHOW} from './taskTypes'
+import {GET_ALL, EDIT} from './taskTypes'
 
 export const getAll = (taskList) => ({type: GET_ALL, taskList})
-export const show = (id) => ({type: SHOW, id})
+export const edit = (id) => ({type: EDIT, id})
