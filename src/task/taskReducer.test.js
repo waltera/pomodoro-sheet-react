@@ -1,5 +1,9 @@
 import reducer, {initialState} from './taskReducer'
-import {GET_ALL, EDIT} from './taskTypes'
+import {
+  GET_ALL,
+  EDIT,
+  TASK_NEW
+} from './taskTypes'
 
 const taskList = {
   "data": [
@@ -88,5 +92,17 @@ describe('task reducer', () => {
     const expectedState = Object.assign({}, {...editState}, {form})
 
     expect(reducer(editState, {type: EDIT, id: 12})).toEqual(expectedState)
+  })
+
+  it('should handle TASK_NEW', () => {
+    const form = {
+      id: 12,
+      description: 'Task 1',
+      pomodoros: 1
+    }
+    const taskNewState = Object.assign({}, {...initialState}, {form})
+    const expectedState = Object.assign({}, {...initialState}, {showModal: true})
+
+    expect(reducer(taskNewState, {type: TASK_NEW})).toEqual(expectedState)
   })
 })

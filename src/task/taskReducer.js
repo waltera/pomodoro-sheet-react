@@ -1,5 +1,9 @@
 import {createReducer} from '../app/utils'
-import {GET_ALL, EDIT} from './taskTypes'
+import {
+  GET_ALL,
+  EDIT,
+  TASK_NEW
+} from './taskTypes'
 
 export const initialState = {
   showModal: false,
@@ -41,7 +45,12 @@ const edit = (state, {id}) => {
   return Object.assign({}, {...state}, {form})
 }
 
+const taskNew = (state) => {
+  return Object.assign({}, {...state}, {form: {}}, {showModal: true})
+}
+
 export default createReducer(initialState, {
   [GET_ALL]: getAll,
-  [EDIT]: edit
+  [EDIT]: edit,
+  [TASK_NEW]: taskNew
 })

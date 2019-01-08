@@ -1,5 +1,13 @@
-import {getAll, edit} from './taskActions'
-import {GET_ALL, EDIT} from './taskTypes'
+import {
+  getAll,
+  edit,
+  taskNew
+} from './taskActions'
+import {
+  GET_ALL,
+  EDIT,
+  TASK_NEW
+} from './taskTypes'
 
 describe('task actions', () => {
   it('getAll action', () => {
@@ -18,5 +26,9 @@ describe('task actions', () => {
       id
     }
     expect(edit(id)).toEqual(expectedAction)
+  })
+
+  it('taskNew action', () => {
+    expect(taskNew()).toEqual({type: TASK_NEW})
   })
 })
