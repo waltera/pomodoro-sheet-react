@@ -1,12 +1,21 @@
 import React from 'react'
+import FormInvalidFeedback from './FormInvalidFeedback'
 
-const Input = ({input, meta, label, type, size}) => {
+const Input = ({input, label, type, size, meta: {error}}) => {
   const invalidClass = () => {
-    if(meta.error != undefined) {
+    if(error != undefined) {
       return 'is-invalid'
     }
 
     return ''
+  }
+
+  const invalidFeedback = () => {
+    if (error != undefined) {
+      return error.map((feedback, i) => {
+        return <FormInvalidFeedback key={i} feedback={feedback} />
+      })
+    }
   }
 
   return <div className={"form-group " + size}>
@@ -17,9 +26,7 @@ const Input = ({input, meta, label, type, size}) => {
       type={type}
       className={"form-control " + invalidClass()} />
 
-    <div className="invalid-feedback">
-      {meta.error}
-    </div>
+    {invalidFeedback()}
   </div>
 }
 

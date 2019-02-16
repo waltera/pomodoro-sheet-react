@@ -1,22 +1,11 @@
-import {SubmissionError} from 'redux-form'
 import {API_HOST, API_HEADERS} from '../app/appTypes'
+import {processFormRequest} from '../app/utils'
 
 export const index = () => {
   fetch(API_HOST + '/tasks').then(response => {
     console.log('get')
     console.log(response)
   })
-}
-
-const processFormRequest = ({status, data}) => {
-  if (status == 400) {
-    throw new SubmissionError({_error: 'Operação não realizada'})
-  }
-
-  if (status == 422) {
-    console.log(data)
-    throw new SubmissionError(data)
-  }
 }
 
 export const create = (values) => {
