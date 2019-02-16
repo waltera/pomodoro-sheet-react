@@ -31,7 +31,7 @@ export function* incrementAsync() {
 }
 
 export function* watchPomodoro() {
-  while ( yield take(START_POMODORO) ) {
+  while (yield take(START_POMODORO)) {
     const timer = yield fork(incrementAsync)
     yield take(STOP_TIMER)
     yield cancel(timer)
@@ -39,7 +39,7 @@ export function* watchPomodoro() {
 }
 
 export function* watchShortBreak() {
-  while ( yield take(START_SHORT_BREAK) ) {
+  while (yield take(START_SHORT_BREAK)) {
     const timer = yield fork(incrementAsync)
     yield take(STOP_TIMER)
     yield cancel(timer)

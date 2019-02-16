@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Head from './Head';
-import Errors from './Errors';
-import Home from '../home/Home';
-import TaskContainer from '../task/TaskContainer';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Provider } from 'react-redux'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import Head from './Head'
+import Errors from './Errors'
+import Home from '../home/Home'
+import TaskContainer from '../task/TaskContainer'
 
 const App = ({ store }) => (
   <Provider store={store}>

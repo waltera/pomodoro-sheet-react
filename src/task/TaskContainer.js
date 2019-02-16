@@ -1,15 +1,25 @@
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import * as actions from './taskActions'
-import Task from './Task'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import {SubmissionError} from 'redux-form'
+import {edit, submitForm} from './taskActions'
+import TaskManage from './TaskManage'
+import * as TaskApi from './taskApi'
 
 const mapStateToProps = (state) => ({
-  list: state.list,
-  show: state.show
+  tasks: state.task.list
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch)
-})
+const mapDispatchToProps = (dispatch) => {
+  return {
+    editHandler: (taskId) => {
+      dispatch(edit(taskId))
+    },
+    handleNew: (values) => {
+      return TaskApi.create(values).then(() => {
+        console.log('sucesso')
+      })
+    }
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Task)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskManage))
