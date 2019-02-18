@@ -13,7 +13,6 @@ const App = ({ store }) => (
       <div>
         <Head />
         <div className="container">
-          <Errors />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/tasks" component={TaskContainer} />

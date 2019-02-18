@@ -1,18 +1,10 @@
 import React from 'react'
-import {Route, FadeIn} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import TaskListPage from './TaskListPage'
 import TaskNew from './TaskNew'
 import TaskEditPage from './TaskEditPage'
 
 const TaskManage = ({match, ...props}) => {
-  const TaskManageRoute = ({ component: Component, ...rest }) => (
-    <Route {...rest} render={routeProps => (
-      <FadeIn>
-        <Component {...routeProps}/>
-      </FadeIn>
-    )}/>
-  )
-
   const renderNew = () => {
     return <TaskNew {...props} />
   }
