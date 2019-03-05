@@ -1,8 +1,6 @@
 import reducer, {initialState} from './taskReducer'
 import {
-  GET_ALL,
-  EDIT,
-  TASK_NEW
+  GET_ALL
 } from './taskTypes'
 
 const taskList = {
@@ -64,5 +62,5 @@ describe('task reducer', () => {
     ]
     const expectedState = Object.assign({}, {...initialState}, {list})
     expect(reducer(undefined, {type: GET_ALL, taskList})).toEqual(expectedState)
-  })  
+  })
 })

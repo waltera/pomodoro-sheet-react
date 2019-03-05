@@ -1,10 +1,11 @@
 import { SubmissionError } from 'redux-form'
 import {
   all,
-  takeEvery
+  takeEvery,
+  call
 } from 'redux-saga/effects'
-
 import {EDIT, HANDLE_NEW} from './taskTypes'
+import * as TaskApi from './taskApi'
 
 // export function* taskEditSaga(...args) {
 //   console.log(args)
@@ -14,13 +15,7 @@ import {EDIT, HANDLE_NEW} from './taskTypes'
 export function* handleNewSaga({...props}) {
   console.log('saga handleNew')
   console.log(props)
-  sleep(1000).then(() => {
-    throw new SubmissionError({
-      description: 'User does not exist',
-      _error: 'Login failed!'
-    })
-  })
-  console.log('fim saga')
+  // yield call(TaskApi.create, props.values)
 }
 
 export function* watchEdit() {

@@ -2,7 +2,9 @@ import React from 'react'
 
 class TaskEditPage extends React.Component {
   componentDidMount() {
-    this.props.editHandler(this.props.match.params.id)
+    console.log('componentDidMount')
+    console.log(this.props.id)
+    this.props.handleEdit(this.props.id)
   }
 
   render() {

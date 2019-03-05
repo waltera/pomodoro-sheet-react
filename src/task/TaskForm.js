@@ -1,11 +1,10 @@
 import React from 'react'
 import {Field} from 'redux-form'
 import Input from '../app/Input'
-import AlertError from '../app/AlertError'
+import Alert from '../app/Alert'
 
-const TaskForm = ({handleSubmit, error, title}) => {
+const TaskForm = ({handleSubmit, error, title, handleClickButton}) => {
   return <div>
-    {<AlertError message={error} />}
     <h1>{title}</h1>
     <form onSubmit={handleSubmit}>
       <div className="form-group">

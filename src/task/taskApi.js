@@ -9,14 +9,9 @@ export const index = () => {
 }
 
 export const create = (values) => {
-  console.log(values)
   return fetch(API_HOST + '/tasks', {
     method: 'POST',
     headers: API_HEADERS,
     body: JSON.stringify({task: values})
-  }).then(response => {    
-    return response.json().then(data => {
-      processFormRequest({status: response.status, data: data})      
-    })
   })
 }
