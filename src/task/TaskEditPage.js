@@ -1,14 +1,16 @@
 import React from 'react'
+import TaskFormContainer from './TaskFormContainer'
 
 class TaskEditPage extends React.Component {
   componentDidMount() {
-    console.log('componentDidMount')
-    console.log(this.props.id)
     this.props.handleEdit(this.props.id)
   }
 
   render() {
-    return <div>Edit</div>
+    console.log('render inicio')
+    console.log(this.props)
+    console.log('render fim')
+    return <TaskFormContainer {...this.props} />
   }
 }
 

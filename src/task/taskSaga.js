@@ -2,33 +2,29 @@ import { SubmissionError } from 'redux-form'
 import {
   all,
   takeEvery,
-  call
+  call,
+  put
 } from 'redux-saga/effects'
-import {EDIT, HANDLE_NEW} from './taskTypes'
+import {
+  EDIT,
+  HANDLE_EDIT
+} from './taskTypes'
 import * as TaskApi from './taskApi'
 
-// export function* taskEditSaga(...args) {
-//   console.log(args)
-//   console.log('taskEditSaga UHULL')
-// }
-
-export function* handleNewSaga({...props}) {
-  console.log('saga handleNew')
-  console.log(props)
-  // yield call(TaskApi.create, props.values)
+export function* editSaga({id}) {
+  const form = yield call(TaskApi.show, id)
+  console.log('editSaga inicio')
+  console.log(form)
+  console.log('editSaga fim')
+  yield put({type: HANDLE_EDIT, form})
 }
 
 export function* watchEdit() {
-  // yield takeEvery(EDIT, taskEditSaga)
-}
-
-export function* watchNew() {
-  yield takeEvery(HANDLE_NEW, handleNewSaga)
+  yield takeEvery(EDIT, editSaga)
 }
 
 export default function* taskSaga() {
   yield all([
-    // watchEdit(),
-    watchNew()
+    watchEdit()
   ])
 }

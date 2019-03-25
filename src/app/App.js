@@ -5,7 +5,8 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import Head from './Head'
 import Home from '../home/Home'
 import AlertContainer from './AlertContainer'
-import TaskContainer from '../task/TaskContainer'
+import TaskNewContainer from '../task/TaskNewContainer'
+import TaskEditContainer from '../task/TaskEditContainer'
 
 const App = ({store}) => {
   return <Provider store={store}>
@@ -17,7 +18,10 @@ const App = ({store}) => {
 
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/tasks" component={TaskContainer} />
+
+            {/* Tasks */}
+            <Route exact path="/tasks/new" component={TaskNewContainer} />
+            <Route exact path="/tasks/:id/edit" component={TaskEditContainer} />
           </Switch>
         </div>
       </div>
