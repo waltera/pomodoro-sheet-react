@@ -1,28 +1,30 @@
 import React from 'react'
-import {Field} from 'redux-form'
-import Input from '../app/Input'
+import TextField from '../form/TextField'
 import Alert from '../app/Alert'
 
-const TaskForm = ({handleSubmit, error, title, handleClickButton}) => {
+const TaskForm = ({handleSubmit, setValue, error, title, form}) => {
+
   return <div>
     <h1>{title}</h1>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <div className="form-row">
 
-          <Field
+          <TextField
             name="description"
             label="Descrição"
             type="text"
             size="col-md-8"
-            component={Input} />
+            setValue={setValue}
+            value={form.description} />
 
-          <Field
+          <TextField
             name="pomodoros"
             label="Pomodoros"
             type="text"
             size="col-md-4"
-            component={Input} />
+            setValue={setValue}
+            value={form.pomodoros} />
         </div>
 
         <button type="submit" className="btn btn-primary">Sign in</button>

@@ -1,4 +1,4 @@
-import {SubmissionError} from 'redux-form'
+// import {SubmissionError} from 'redux-form'
 
 export const createReducer = (initialState, handlers) => {
   return function reducer(state = initialState, action) {
@@ -10,11 +10,11 @@ export const createReducer = (initialState, handlers) => {
   }
 }
 
-export const processFormResponse = (response) => {
-  if (response.ok) { return }
+// export const processFormResponse = (response) => {
+//   if (response.ok) { return }
 
-  return response.json().then(data => {
-    console.log(data)
-    throw new SubmissionError(data)
-  })
-}
+//   return response.json().then(data => {
+//     console.log(data)
+//     // throw new SubmissionError(data)
+//   })
+// }

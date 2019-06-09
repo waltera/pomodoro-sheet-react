@@ -1,6 +1,7 @@
 import React from 'react' // eslint-disable-line no-unused-vars
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import { render } from 'react-dom'
 import reducers from './app/reducers'
 import rootSaga from './app/sagas'
@@ -14,7 +15,7 @@ import './app/styles.css'
 const sagaMiddleware = createSagaMiddleware(rootSaga)
 const store = createStore(
   reducers,
-  applyMiddleware(sagaMiddleware)
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
 )
 
 sagaMiddleware.run(rootSaga)

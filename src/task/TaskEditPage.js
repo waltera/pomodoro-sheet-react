@@ -1,5 +1,5 @@
 import React from 'react'
-import TaskFormContainer from './TaskFormContainer'
+import TaskForm from './TaskForm'
 
 class TaskEditPage extends React.Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class TaskEditPage extends React.Component {
     console.log('render inicio')
     console.log(this.props)
     console.log('render fim')
-    return <TaskFormContainer {...this.props} />
+    return <TaskForm {...this.props} />
   }
 }
 

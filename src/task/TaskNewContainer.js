@@ -1,27 +1,29 @@
 import {connect} from 'react-redux'
-import {processFormResponse} from '../app/utils'
-import * as appActions from '../app/appActions'
-import * as TaskApi from './taskApi'
-import TaskFormContainer from './TaskFormContainer'
+import TaskForm from './TaskForm'
+import * as taskActions from './taskActions'
 
-const mapStateToProps = (state) => ({title: 'Novo'})
+const mapStateToProps = (state) => {
+  return {
+    title: 'Novo',
+    form: state.task.form
+  }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log(ownProps)
   return {
-    onSubmit: (values) => {
-      return TaskApi.create(values)
-        .then(processFormResponse)
-        .then(() => {
-          console.log('sucesso')
-          dispatch(appActions.showAlert('success', 'Message 1'))
-        }).catch((err) => {
-          dispatch(appActions.showAlert('error', 'Operação não realizada'))
-          console.log('erro')
-          throw err
-        })
+    handleSubmit: (event) => {
+      event.preventDefault()
+      console.log(ownProps)
+      dispatch(taskActions.handleCreate())
+    },
+    setValue: (name, value) => {
+      console.log('TaskNewContainer setValue')
+      console.log(taskActions)
+      console.log(name)
+      console.log(value)
+      dispatch(taskActions.setFormValue(name, value))
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskFormContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(TaskForm)

@@ -1,7 +1,9 @@
 import {createReducer} from '../app/utils'
+import {setValue} from '../form/formReducer'
 import {
   GET_ALL,
-  HANDLE_EDIT
+  HANDLE_EDIT,
+  FORM_SET_VALUE
 } from './taskTypes'
 
 export const initialState = {
@@ -33,19 +35,7 @@ const getAll = (state, {taskList}) => {
   return Object.assign({}, {...state}, {list: newList})
 }
 
-const handleEdit = (state, {form}) => {
-  console.log('handleEdit inicio')
-  // const pomodoro = {
-  //   id: form.data.id,
-  //   ...form.data.attributes
-  // }
-  const pomodoro = { description: 'Teste', pomodoros: 2 }
-  console.log(Object.assign({}, {...state}, {form: pomodoro}))
-  console.log('handleEdit fim')
-  return Object.assign({}, {...state}, {form: pomodoro})
-}
-
 export default createReducer(initialState, {
   [GET_ALL]: getAll,
-  [HANDLE_EDIT]: handleEdit
+  [FORM_SET_VALUE]: setValue
 })

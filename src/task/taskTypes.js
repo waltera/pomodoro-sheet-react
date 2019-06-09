@@ -1,5 +1,6 @@
 export const GET_ALL = 'TASK_GET_ALL'
 export const EDIT = 'TASK_EDIT'
 export const TASK_NEW = 'TASK_NEW'
-export const HANDLE_NEW = 'TASK_HANDLE_NEW'
-export const HANDLE_EDIT = 'TASK_HANDLE_EDIT'
+export const HANDLE_CREATE = 'TASK_HANDLE_CREATE'
+export const HANDLE_UPDATE = 'TASK_HANDLE_UPDATE'
+export const FORM_SET_VALUE = 'TASK_FORM_SET_VALUE'
