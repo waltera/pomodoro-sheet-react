@@ -31,6 +31,13 @@ describe('TextField', () => {
     expect(label.text()).toBe('Label')
   })
 
+  it('should render with wrapper class', () => {
+    const {wrapper} = setup({wrapperClass: 'custom-wrapper'})
+
+    const div = wrapper.find('div')
+    expect(div.hasClass('custom-wrapper')).toBe(true)
+  })
+
   it('should render with error', () => {
     const errors = ['erro1', 'erro2']
     const {wrapper} = setup({errors})

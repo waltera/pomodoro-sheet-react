@@ -1,49 +1,35 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-class TextField extends Component {
-  constructor(props) {
-    super(props)
-    this.getValue = this.getValue.bind(this);
-    this.setValue = this.setValue.bind(this);
-    this.inputClass = this.inputClass.bind(this);
-    this.showErrors = this.showErrors.bind(this);
+const TextField = ({setValue, name, label, wrapperClass, value, errors}) => {
+  const onChange = (event) => {
+    setValue(name, event.target.value)
   }
 
-  setValue(event) {
-    this.props.setValue(this.props.name, event.target.value)
-  }
-
-  getValue() {
-    return this.state.value
-  }
-
-  inputClass() {
-    if(!this.props.errors) { return 'form-control' }
+  const inputClass = () => {
+    if(!errors) { return 'form-control' }
 
     return 'form-control is-invalid'
   }
 
-  showErrors() {
-    if(!this.props.errors) { return }
+  const showErrors = () => {
+    if(!errors) { return }
 
     return <div className="invalid-feedback">
-      {this.props.errors.join('<br />')}
+      {errors.join('<br />')}
     </div>
   }
 
-  render() {
-    return <div>
-      <label htmlFor={this.props.name}>{this.props.label}</label>
-      <input
-        name={this.props.name}
-        value={this.props.value}
-        type="text"
-        className={this.inputClass()}
-        onChange={this.setValue} />
-      {this.showErrors()}
-    </div>
-  }
+  return <div className={wrapperClass}>
+    <label htmlFor={name}>{label}</label>
+    <input
+      name={name}
+      value={value}
+      type="text"
+      className={inputClass()}
+      onChange={onChange} />
+    {showErrors()}
+  </div>
 }
 
 TextField.propTypes = {
