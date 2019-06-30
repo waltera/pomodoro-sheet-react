@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 class TextField extends Component {
   constructor(props) {
     super(props)
-    this.state = { 'value': 'sim' }
     this.getValue = this.getValue.bind(this);
     this.setValue = this.setValue.bind(this);
+    this.inputClass = this.inputClass.bind(this);
+    this.showErrors = this.showErrors.bind(this);
   }
 
   setValue(event) {
@@ -17,38 +18,41 @@ class TextField extends Component {
     return this.state.value
   }
 
+  inputClass() {
+    if(!this.props.errors) { return 'form-control' }
+
+    return 'form-control is-invalid'
+  }
+
+  showErrors() {
+    if(!this.props.errors) { return }
+
+    return <div className="invalid-feedback">
+      {this.props.errors.join('<br />')}
+    </div>
+  }
+
   render() {
-    return <div className={"form-group "}>
+    return <div>
+      <label htmlFor={this.props.name}>{this.props.label}</label>
       <input
-        onChange={this.setValue}
+        name={this.props.name}
         value={this.props.value}
         type="text"
-        className={"form-control "} />
+        className={this.inputClass()}
+        onChange={this.setValue} />
+      {this.showErrors()}
     </div>
   }
 }
 
-// const TextField = ({setValue, name, label, size, value}) => {
-//   onChange = (event) => {
-//     console.log('onChange')
-//     // setValue(name, event.target.value)
-//   }
-
-//   return <div className={"form-group "}>
-//     <input
-//       name={name}
-//       onChange={onChange(event)}
-//       value={value}
-//       type="text"
-//       className={"form-control "} />
-//   </div>
-// }
-
-// TextField.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   label: PropTypes.string.isRequired,
-//   size: PropTypes.number.isRequired,
-//   value: PropTypes.string
-// }
+TextField.propTypes = {
+  setValue: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  wrapperClass: PropTypes.string,
+  value: PropTypes.string,
+  errors: PropTypes.array
+}
 
 export default TextField
