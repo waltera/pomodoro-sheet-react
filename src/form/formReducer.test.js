@@ -48,4 +48,8 @@ describe('form reducer', () => {
 
     expect(reducer.setValue(state, {name, value})).toEqual(expected)
   })
+
+  it('handleErrors', () => {
+
+  })
 })
